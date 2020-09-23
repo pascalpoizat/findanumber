@@ -12,4 +12,4 @@ jobs:
               with:
                 java-version: 11
             - name: check with gradle
-                run: ./gradlew check
+              run: ./gradlew check
