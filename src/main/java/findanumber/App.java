@@ -7,12 +7,21 @@ public class App {
 
     private static final String GAME_HEADER = "Find a Number!";
 
-    public static void game() {
+    public static void game(int nombreATrouver) {
+        System.out.println(String.format("Le nombre était : %d", nombreATrouver));
         System.out.println("Game over!");
     }
 
     public static void main(String[] args) {
         System.out.println(GAME_HEADER);
-        game();
+        int borneInf = 40;
+        int borneSup = 50;
+        int nombreATrouver = genererNombre(borneInf, borneSup);
+        game(nombreATrouver);
+    }
+
+    private static int genererNombre(int borneInf, int borneSup) {
+        int delta = 42;
+        return 42;
     }
 }
