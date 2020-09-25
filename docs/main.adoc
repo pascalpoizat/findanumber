@@ -1,15 +1,85 @@
-# find a number
+= ```findanumber``` Documentation
+Doc Writer <doc.writer@asciidoctor.org>
+v1.0, 2014-01-01
+:reproducible:
+:icons: font
+//:source-highlighter: rouge
+:toc:
+:toclevels: 2
+:numbered:
+:xrefstyle: short
+:figure-caption: Figure
+:listing-caption: Listing
 
-## installation
+== How to install?
 
-```sh
-git clone http://github.com/pascalpoizat/findanumber
-```
+=== If you have ```git``` on your computer
 
-## playing the game
+Simply run:
+[source,shell]
+----
+git clone https://github.com/pascalpoizat/findanumber
+----
 
-```sh
+=== If you do not have ```git``` on your computer
+
+Go to https://github.com/pascalpoizat/findanumber, get the zipfile and uncompress it.
+
+== How to run?
+
+Simply run:
+[source, shell]
+----
 ./gradlew run
-```
+----
 
+**Note:** you must have Java 11 installed on your computer.
 
+== What does ```findanumber``` does?
+
+Well, not much (see <<App>>).
+
+[#App,source,java,caption='{listing-caption} {counter:refnum}.',title=' The ```App``` class.']
+----
+public class App {
+
+    private static final String GAME_HEADER = "Find a Number!";
+
+    public static void game(int nombreATrouver) {
+        System.out.println(String.format("Le nombre était : %d", nombreATrouver));
+        System.out.println("Game over!");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(GAME_HEADER);
+        int borneInf = 40;
+        int borneSup = 50;
+        int nombreATrouver = genererNombre(borneInf, borneSup);
+        game(nombreATrouver);
+    }
+
+    private static int genererNombre(int borneInf, int borneSup) {
+        int delta = 42;
+        return 42;
+    }
+}
+----
+
+Still, it is quite fun to spend time playing with ```findanumber``` if you like number ```42```. Maybe soon available as an icon:android[] application.
+
+== Last comments
+
+Some books recommended with the course.
+
+To learn all about design patterns, refer to the book by the "`Gang of Four`" <<gof>>.
+Good practices are important. See <<ej3>> for example.
+Some people refer to _The Pragmatic Programmer_ <<pp>>, that should be required reading for all developers. I still have to check this one.
+
+[bibliography]
+== References
+
+- [[[ej3,1]]] Joshua Bloch. Effective Java, Third Edition. Pearson Education. 2018.
+- [[[gof,2]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides. Design Patterns:
+  Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+- [[[pp,3]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
+  From Journeyman to Master. Addison-Wesley. 1999.
