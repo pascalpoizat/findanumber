@@ -12,6 +12,10 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
+
+    // AsciiDoctor (doc)
+    id 'org.asciidoctor.jvm.convert' version '3.1.0'
+    id 'org.asciidoctor.jvm.pdf' version '3.1.0'
 }
 
 repositories {
@@ -31,4 +35,27 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClassName = 'findanumber.App'
+}
+
+asciidoctor {
+  sourceDir  file('docs')
+  sources {
+    include 'main.adoc'
+  }
+  outputDir  file('build/docs')
+  outputOptions {
+      backends 'pdf'
+  }
+}
+
+pdfThemes {
+    github 'basic', { 
+        organisation = 'fwilhe2' 
+        repository = 'corporate-theme' 
+        relativePath = 'resources/themes' 
+
+        branch = 'master' 
+        tag = '1.0.1' 
+        commit = '4910271e8c3964b60e186a62f3e4339ed0752714' 
+    }
 }

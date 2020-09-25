@@ -1,0 +1,15 @@
+# find a number
+
+## installation
+
+```sh
+git clone http://github.com/pascalpoizat/findanumber
+```
+
+## playing the game
+
+```sh
+./gradlew run
+```
+
+
