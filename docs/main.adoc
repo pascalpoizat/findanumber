@@ -35,7 +35,7 @@ Simply run:
 
 **Note:** you must have Java 11 installed on your computer.
 
-== What does ```findanumber``` does?
+== What does ```findanumber``` do?
 
 Well, not much (see <<App>>).
 
