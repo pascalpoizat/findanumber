@@ -4,3 +4,7 @@ sudo: false
 
 script:
   - ./gradlew check
+
+after_success:
+  - ./gradlew asciidoctor
+
