@@ -1,15 +1,17 @@
 = ```findanumber``` Documentation
-Doc Writer <doc.writer@asciidoctor.org>
-v1.0, 2014-01-01
-:reproducible:
-:icons: font
-:source-highlighter: rouge
-:toc:
-:toclevels: 2
-:numbered:
-:xrefstyle: short
-:figure-caption: Figure
-:listing-caption: Listing
+Pascal Poizat @pascalpoizat
+2020-10-25
+:revnumber: {project-version}
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../../main/java]
+ifndef::modelsdir[:modelsdir: models]
+
+// :reproducible:
+// :numbered:
+// :xrefstyle: short
+// :figure-caption: Figure
+// :listing-caption: Listing
 
 == How to install?
 
@@ -33,36 +35,38 @@ Simply run:
 ./gradlew run
 ----
 
-**Note:** you must have Java 11 installed on your computer.
+Does not work with Java 14. Use Java 11 or 12.
 
 == What does ```findanumber``` do?
 
-Well, not much (see <<App>>).
+Well, not much (see below).
 
-[#App,source,java,caption='{listing-caption} {counter:refnum}.',title=' The ```App``` class.']
+Here is the class diagram:
+
+[plantuml, "class-diagram", svg, config="commons.style"]
+.App class diagram
 ----
-public class App {
-
-    private static final String GAME_HEADER = "Find a Number!";
-
-    public static void game(int nombreATrouver) {
-        System.out.println(String.format("Le nombre était : %d", nombreATrouver));
-        System.out.println("Game over!");
-    }
-
-    public static void main(String[] args) {
-        System.out.println(GAME_HEADER);
-        int borneInf = 40;
-        int borneSup = 50;
-        int nombreATrouver = genererNombre(borneInf, borneSup);
-        game(nombreATrouver);
-    }
-
-    private static int genererNombre(int borneInf, int borneSup) {
-        int delta = 42;
-        return 42;
-    }
+class App {
+    - {static} GAME_HEADER: string = "Find a Number!" <<final>>
+    + {static} game(nombreATrouver: int): void
+    + {static} genererNombre(borneInf: int, borneSup: int): void
+    + {static} main(args: string[*]): void
 }
+----
+
+Here is the source code (using ```include``` but you can also put it directly):
+
+[source,java]
+.App source code
+----
+include::{sourcedir}/findanumber/App.java[indent=0]
+----
+
+Here is some code selection (using ```tag```):
+
+[source,java]
+----
+include::{sourcedir}/findanumber/App.java[tag=contains,indent=0]
 ----
 
 Still, it is quite fun to spend time playing with ```findanumber``` if you like number ```42```. Maybe soon available as an icon:android[] application.
